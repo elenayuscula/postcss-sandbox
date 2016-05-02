@@ -1,0 +1,271 @@
+
+/*
+AUTOPREFIXER
+------------- */
+
+
+.flex {
+	display: flex;
+}
+
+.rotate {
+	width: 20em;
+	height: 20em;
+	transform: rotate(45deg);
+}
+
+
+
+
+
+
+
+/* CUSTOM STUFF 
+------------- */
+
+
+/* custom properties */
+
+:root {
+	--mainColor: #f6a2da;
+	--linkColor: #5e09f6;
+	--maxWidth: 800px;
+	--fontSize: 1em;
+	--numColumns: 12;
+}
+
+
+body {
+	line-height: calc(var(--fontSize) * 1.5);
+}
+
+.container {
+	background-color: var(--mainColor);
+	max-width: var(--maxWidth);
+}
+
+
+
+
+
+/* custom media queries + media queries ranges */
+
+@custom-media --md-screen (width>=48em) and (width<=64em);
+
+
+@media (--md-screen) {
+	.col-md-7 {
+		width: calc((7 / var(--numColumns)) * 100%);
+	}
+}
+
+
+
+
+
+/* custom selectors */
+
+@custom-selector :--encabezados h1, h2, h3, h4, h5, h6;
+@custom-selector :--input input[type=text], .input[type=text];
+@custom-selector :--enter :focus;
+
+:--encabezados {
+	font-weight: bold;
+}
+
+:--input {
+	width: 15em;
+	height: 8em;
+	padding: 2em;
+	background-color: #fbfff8;
+	border: 1px solid #d4d4cc;
+}
+
+:--input:--enter {
+	border: 1px solid #8ce8ee;
+
+}
+
+
+
+
+/* COLORS 
+------------- */
+
+/* color function */
+
+@custom-selector :--colors .alpha, .blend, .tint, .shade, .saturation, .lightness, .hwb, .gray;
+
+
+.colors-section {
+	width: 80%;
+	margin: 5em auto;
+	display: flex;
+	justify-content: center;
+}
+
+
+:--colors {
+	width: 8em;
+	height: 8em;
+	margin-right: 1em;
+}
+
+
+.alpha {
+	background-color: color(tomato alpha(-10%));
+}
+
+
+.blend {
+	background-color:color(red blend(blue 50%));
+}
+
+
+.tint {
+	background-color: color(orange tint(30%));
+}
+
+
+.shade {
+	background-color: color(lightblue shade(30%));
+}
+
+
+.saturation {
+	background-color: color(pink saturation(50%));
+}
+
+
+.lightness {
+	background-color: color(navy lightness(80%));
+}
+
+
+.hwb {
+	background-color: hwb(120, 50%, 20%, .4);
+}
+
+
+
+/* gray() function */
+
+.gray {
+	background-color: gray(20%, 15%);
+}
+
+
+
+
+
+
+/* FILTER PROPERTY 
+----------------- */
+
+.blur {
+    filter: blur(15px);
+}
+
+
+
+
+
+
+
+/*
+SELECTION GOODIES
+--------------- */
+
+
+
+/* :any-link */
+
+.main-nav:any-link {
+  text-decoration: none;
+}
+
+
+
+/* :matches */
+
+li:matches (:first-child, .special) {
+	background-color: red;
+}
+
+
+.div:matches (.full-width) {
+	width: 100%;
+  	max-width: 1024px;
+}
+
+
+
+/* :not */
+
+li:not(:last-child) {
+	margin-right: 2em;
+}
+
+
+
+
+
+
+
+/*
+SASS SYNTAX WITHOUT SASS
+------------------------ */
+
+
+/* loops */
+
+@each $icon in (facebook, twitter, instagram) {
+    .icon-$(icon) {
+        background: url('icons/$(icon).png');
+    }
+}
+
+
+@for $i from 1 through 3 {
+	.section-$i {
+		width: calc($i / 3) * 100%;
+	}
+}
+
+
+
+/* mixins */
+
+@define-mixin $mainFont {
+  font-family: "Helvetica Neue", sans-serif;
+  font-size: 1em;
+  font-weight: regular;
+}
+
+.content {
+  @mixin $mainFont;
+}
+
+
+
+/* nesting */
+
+h1 {
+	font-size: calc(var(--fontSize) * 1.5);
+	margin-bottom: 2em;
+
+	p {
+		font-size: var(--fontSize);
+		margin-bottom: 1em;
+
+		a {
+			text-decoration: none;
+		}
+	}
+}
+
+
+
+
+
+
