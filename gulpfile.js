@@ -2,6 +2,8 @@ var gulp = require('gulp');
 var postcss = require('gulp-postcss');
 var cssnext = require('postcss-cssnext');
 var precss = require('precss');
+var scss = require('postcss-scss');
+var strip = require('postcss-strip-inline-comments');
 var nano = require('gulp-cssnano');
 var csscomb = require('gulp-csscomb');
 var rename = require('gulp-rename');
@@ -19,11 +21,12 @@ function handleError(err) {
 gulp.task('css', function() {
 	var processors = [ 
 		cssnext ({ browsers: ['last 2 versions']}),
-		precss
+		precss,
+		strip
 	]
 
 	return gulp.src('src/styles-dev.css') // sólo queremos que se aplique la tarea en el archivo styles-dev.css
-		.pipe(postcss(processors))// le paso el array a postcss
+		.pipe(postcss(processors, {syntax: scss}))// le paso el array a postcss, especificando la sintaxis scss para que me ignore los comentarios de SASS
 		.on('error', handleError) // En caso de error, ejecuta la función handleError
 		.pipe(plumber()) 
 		.pipe(csscomb()) // limpia y ordena el CSS según la configuración del archivo .csscomb.json
