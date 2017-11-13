@@ -1,0 +1,143 @@
+{
+  "name": "elenayuscula/postcss-sandbox",
+  "version": "0.1.4",
+  "libraries": {
+    "xv": "^1.1.25"
+  },
+  "title": "PostCSS Sandbox",
+  "branch": "",
+  "style": {
+    "name": "Default",
+    "componentSet": {
+      "nav": "nav/BasicNav",
+      "header": "header/BannerHeader",
+      "article": "article/BasicArticle",
+      "footer": "footer/BasicFooter"
+    },
+    "fontFamily": "-apple-system, BlinkMacSystemFont, sans-serif",
+    "fontWeight": 400,
+    "bold": 600,
+    "lineHeight": 1.5,
+    "typeScale": [
+      72,
+      48,
+      24,
+      20,
+      16,
+      14,
+      12
+    ],
+    "monospace": "Menlo, monospace",
+    "heading": {
+      "fontFamily": null,
+      "fontStyle": null,
+      "fontWeight": 600,
+      "lineHeight": 1.25,
+      "textTransform": null,
+      "letterSpacing": null
+    },
+    "h0": {},
+    "h1": {},
+    "h2": {},
+    "h3": {},
+    "h4": {},
+    "h5": {},
+    "h6": {},
+    "alternativeText": {},
+    "space": [
+      0,
+      8,
+      16,
+      32,
+      48,
+      64,
+      96
+    ],
+    "layout": {
+      "maxWidth": 1024,
+      "centered": false
+    },
+    "colors": {
+      "text": "#111",
+      "background": "#fff",
+      "primary": "#08e",
+      "secondary": "#059",
+      "highlight": "#e08",
+      "border": "#ddd",
+      "muted": "#eee"
+    },
+    "border": {
+      "width": 1,
+      "radius": 2
+    },
+    "link": {},
+    "button": {
+      "hover": {
+        "boxShadow": "inset 0 0 0 999px rgba(0, 0, 0, .125)"
+      }
+    },
+    "input": {},
+    "body": {
+      "margin": 0
+    },
+    "breakpoints": {
+      "xs": "@media screen and (max-width:40em)",
+      "sm": "@media screen and (min-width:40em)",
+      "md": "@media screen and (min-width:52em)",
+      "lg": "@media screen and (min-width:64em)"
+    }
+  },
+  "content": [
+    {
+      "component": "nav",
+      "links": [
+        {
+          "href": "https://github.com/elenayuscula/postcss-sandbox",
+          "text": "GitHub"
+        },
+        {
+          "href": "https://npmjs.com/package/postcss-sandbox",
+          "text": "npm"
+        }
+      ]
+    },
+    {
+      "component": "header",
+      "heading": "postcss-sandbox",
+      "subhead": "A PostCSS workflow to play and experiment with",
+      "children": [
+        {
+          "component": "ui/TweetButton",
+          "text": "postcss-sandbox: A PostCSS workflow to play and experiment with",
+          "url": null
+        },
+        {
+          "component": "ui/GithubButton",
+          "user": "elenayuscula",
+          "repo": "postcss-sandbox"
+        }
+      ],
+      "text": "v1.0.0"
+    },
+    {
+      "component": "article",
+      "metadata": {
+        "source": "github.readme"
+      },
+      "html": "<h1>PostCSS Sandbox</h1>\n<h2>A PostCSS workflow</h2>\n<p>En este gulpfile pretendo crear un entorno de trabajo basado en PostCSS, con plugins que permiten escribir sintaxis CSS futura, y a la vez seguir aprovechando algunas de las caracter&#xED;sticas de SASS como las variables, los mixins o los loops.</p>\n<p>Es posible que este flujo de trabajo vaya evolucionando e incorporando nuevos plugins seg&#xFA;n las necesidades, as&#xED; como eliminando otros que vaya considerando innecesarios.</p>\n<h2>Contenido</h2>\n<p>Est&#xE1; configurado de manera que se trabaja directamente sobre el archivo <code>src/styles-dev.css</code> El CSS es compilado y ordenado seg&#xFA;n la configuraci&#xF3;n del archivo <code>.csscomb.json</code> (Vosotros pod&#xE9;is crearos vuestra propia configuraci&#xF3;n <a href=\"http://csscomb.com/config\">aqu&#xED;</a>) en el archivo <code>dest/styles.css</code> y, a la vez, es minificado en <code>dest/styles.min.css</code>. De esta manera podemos ver exactamente qu&#xE9; y c&#xF3;mo se compila a la vez que minificamos el CSS resultante para usar en distribuci&#xF3;n.</p>\n"
+    },
+    {
+      "component": "footer",
+      "links": [
+        {
+          "href": "https://github.com/elenayuscula/postcss-sandbox",
+          "text": "GitHub"
+        },
+        {
+          "href": "https://github.com/elenayuscula",
+          "text": "elenayuscula"
+        }
+      ]
+    }
+  ]
+}
